@@ -71,7 +71,7 @@ def main():
 
     # create the resource group
     # comment out if the resource group already exits
-    resource_client.resource_groups.create_or_update(rg_name, rg_params)
+    # resource_client.resource_groups.create_or_update(rg_name, rg_params)
 
     # Create a data factory
     df_resource = Factory(location='eastus')
@@ -85,7 +85,8 @@ def main():
     ls_name = 'storageLinkedService'
 
     # Specify the name and key of your Azure Storage account
-    storage_string = SecureString(r'DefaultEndpointsProtocol=https;AccountName=lakemichigan;AccountKey={account_key}')
+    string = r'DefaultEndpointsProtocol=https;AccountName=lakemichigan;AccountKey={account_key}'
+    storage_string = SecureString(string)
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
     ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
@@ -113,7 +114,8 @@ def main():
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref],
+                                 source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity
     p_name = 'copyPipeline'
