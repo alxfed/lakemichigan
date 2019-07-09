@@ -1,0 +1,13 @@
+{
+	"name": "DataDestinationStore1",
+	"properties": {
+		"description": "Connection to your Azure Data Lake Store.",
+		"linkedServiceName": {
+			"referenceName": "lakemichigan_datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlobFSFile"
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

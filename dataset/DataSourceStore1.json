@@ -1,0 +1,24 @@
+{
+	"name": "DataSourceStore1",
+	"properties": {
+		"description": "Connection your Amazon S3 store.",
+		"linkedServiceName": {
+			"referenceName": "chicago_bucket",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AmazonS3Object",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"bucketName": "chicago-bucket"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
