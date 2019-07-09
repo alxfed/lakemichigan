@@ -1,5 +1,7 @@
 """
 pee-pee-pee
+https://docs.microsoft.com/en-us/python/api/overview/azure/datafactory?view=azure-python
+https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-python
 """
 
 from azure.common.credentials import ServicePrincipalCredentials
